@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DogsService } from '../../dogs/services/dogs.service';
+import { ListDogsResponse } from '../../dogs/interface/dogs.interface';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
-  constructor() { }
+  get resultados(): ListDogsResponse[]{
+    return this.dogsService.resultados; 
+  }
 
+  constructor( private dogsService: DogsService) { 
+    console.log( this.dogsService.resultados );
+  }
+  
 }
